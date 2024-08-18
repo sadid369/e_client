@@ -1,3 +1,4 @@
+import 'package:e_client/utility/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -38,7 +39,11 @@ class _CarouselSliderState extends State<CarouselSlider> {
               return FittedBox(
                 fit: BoxFit.none,
                 child: CustomNetworkImage(
-                  imageUrl: widget.items.safeElementAt(index)?.url ?? '',
+                  imageUrl: widget.items
+                          .safeElementAt(index)
+                          ?.url!
+                          .replaceAll(LOCALHOST, IP) ??
+                      '',
                   fit: BoxFit.contain,
                   scale: 3.0,
                 ),

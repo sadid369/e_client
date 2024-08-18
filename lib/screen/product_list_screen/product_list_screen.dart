@@ -6,8 +6,6 @@ import '../../../../widget/product_grid_view.dart';
 import 'components/category_selector.dart';
 import 'components/poster_section.dart';
 
-
-
 class ProductListScreen extends StatelessWidget {
   const ProductListScreen({super.key});
 
@@ -47,7 +45,7 @@ class ProductListScreen extends StatelessWidget {
                 Consumer<DataProvider>(
                   builder: (context, dataProvider, child) {
                     return ProductGridView(
-                      items: dataProvider.allProducts,
+                      items: dataProvider.products,
                     );
                   },
                 ),
