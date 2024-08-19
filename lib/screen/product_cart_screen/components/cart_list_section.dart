@@ -1,7 +1,9 @@
+import 'package:e_client/utility/constants.dart';
+import 'package:e_client/utility/extensions.dart';
+
 import '../../../utility/utility_extention.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cart/model/cart_model.dart';
-
 
 class CartListSection extends StatelessWidget {
   final List<CartModel> cartProducts;
@@ -45,20 +47,27 @@ class CartListSection extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(5),
                           child: Image.network(
-                            cartItem.productImages.safeElementAt(0) ?? '',
+                            cartItem.productImages
+                                    .safeElementAt(0)!
+                                    .replaceAll(LOCALHOST, IP) ??
+                                '',
                             width: 100,
                             height: 90,
-                            loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                            loadingBuilder: (BuildContext context, Widget child,
+                                ImageChunkEvent? loadingProgress) {
                               if (loadingProgress == null) return child;
                               return Center(
                                 child: CircularProgressIndicator(
-                                  value: loadingProgress.expectedTotalBytes != null
-                                      ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                                  value: loadingProgress.expectedTotalBytes !=
+                                          null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
                                       : null, // Progress indicator.
                                 ),
                               );
                             },
-                            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                            errorBuilder: (BuildContext context,
+                                Object exception, StackTrace? stackTrace) {
                               return const Icon(Icons.error, color: Colors.red);
                             },
                           ),
@@ -109,7 +118,7 @@ class CartListSection extends StatelessWidget {
                         IconButton(
                           splashRadius: 10.0,
                           onPressed: () {
-                            //TODO: should complete call updateCart decrement
+                            context.cartProvider.updateCart(cartItem, -1);
                           },
                           icon: const Icon(
                             Icons.remove,
@@ -126,7 +135,7 @@ class CartListSection extends StatelessWidget {
                         IconButton(
                           splashRadius: 10.0,
                           onPressed: () {
-                            //TODO: should complete updateCart increment
+                            context.cartProvider.updateCart(cartItem, 1);
                           },
                           icon: const Icon(Icons.add, color: Color(0xFFEC6813)),
                         ),
