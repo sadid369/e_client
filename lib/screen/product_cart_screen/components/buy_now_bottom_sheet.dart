@@ -217,7 +217,7 @@ void showCustomBottomSheet(BuildContext context) {
                               .validate()) {
                             context.cartProvider.buyNowFormKey.currentState!
                                 .save();
-                            //TODO: should complete call submitOrder
+                            context.cartProvider.submitOrder(context);
                             return;
                           }
                         });
