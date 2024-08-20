@@ -195,11 +195,12 @@ class CartProvider extends ChangeNotifier {
     if (selectedPaymentOption == 'cod') {
       addOrder(context);
     } else {
-      await stripePayment(
-        operation: () {
-          addOrder(context);
-        },
-      );
+      // await stripePayment(
+      //   operation: () {
+      //     addOrder(context);
+      //   },
+      // );
+      addOrder(context);
     }
   }
 
@@ -231,7 +232,8 @@ class CartProvider extends ChangeNotifier {
           "postal_code": postalCodeController.text,
           "country": "US"
         },
-        "amount": 100, //TODO: should complete amount grand total
+        "amount":
+            getGrandTotal() * 100, //TODO: should complete amount grand total
         "currency": "usd",
         "description": "Your transaction description here"
       };

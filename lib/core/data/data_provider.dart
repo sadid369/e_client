@@ -49,6 +49,7 @@ class DataProvider extends ChangeNotifier {
     getAllSubCategory();
     getAllBrands();
     getAllPoster();
+    getAllOrders();
   }
 
   Future<List<Category>> getAllCategory({bool showSnack = false}) async {
@@ -263,6 +264,24 @@ class DataProvider extends ChangeNotifier {
     //? Return the discount percentage as an integer
     return discount;
   }
-}
 
-  //TODO: should complete getAllOrderByUser
+  Future<void> getAllOrders({bool showSnack = false}) async {
+    try {
+      Response response = await service.getItems(endpointUrl: 'orders');
+      if (response.isOk) {
+        ApiResponse<List<Order>> apiResponse =
+            ApiResponse<List<Order>>.fromJson(
+          response.body,
+          (json) => (json as List).map((item) => Order.fromJson(item)).toList(),
+        );
+        _allOrders = apiResponse.data ?? [];
+        _filteredOrders = List.from(_allOrders);
+        notifyListeners();
+        if (showSnack) SnackBarHelper.showSuccessSnackBar(apiResponse.message);
+      }
+    } catch (e) {
+      if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
+      rethrow;
+    }
+  }
+}
