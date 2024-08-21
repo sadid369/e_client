@@ -1,3 +1,5 @@
+import 'package:onesignal_flutter/onesignal_flutter.dart';
+
 import 'screen/home_screen.dart';
 import 'screen/login_screen/login_screen.dart';
 import 'screen/login_screen/provider/user_provider.dart';
@@ -22,9 +24,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   var cart = FlutterCart();
-  //TODO: should complete add one signal app id
-  // OneSignal.initialize("YOUR_ONE_SIGNAL_APP_ID");
-  // OneSignal.Notifications.requestPermission(true);
+  OneSignal.initialize("698279ba-0355-4403-8181-27c8dc6ffbe8");
+  OneSignal.Notifications.requestPermission(true);
   await cart.initializeCart(isPersistenceSupportEnabled: true);
 
   runApp(
