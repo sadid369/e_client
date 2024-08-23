@@ -1,5 +1,4 @@
 import 'package:e_client/utility/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -55,7 +54,7 @@ class ProductGridTile extends StatelessWidget {
                     Icons.favorite,
                     color: favoriteProvider.checkIsItemFavorite(product.sId!)
                         ? Colors.red
-                        : Color(0xFFA6A3A0),
+                        : const Color(0xFFA6A3A0),
                   ),
                   onPressed: () {
                     favoriteProvider.updateToFavoriteList(product.sId ?? '');

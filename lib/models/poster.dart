@@ -8,11 +8,11 @@ class Poster {
 
   Poster(
       {this.sId,
-        this.posterName,
-        this.imageUrl,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.posterName,
+      this.imageUrl,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Poster.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -24,13 +24,13 @@ class Poster {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['posterName'] = this.posterName;
-    data['imageUrl'] = this.imageUrl;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
+    final Map<String, dynamic> data = {};
+    data['_id'] = sId;
+    data['posterName'] = posterName;
+    data['imageUrl'] = imageUrl;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
     return data;
   }
 }

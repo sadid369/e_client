@@ -7,26 +7,26 @@ class Coupon {
   String? endDate;
   String? status;
   String? applicableCategory;
-  Null? applicableSubCategory;
-  Null? applicableProduct;
+  String? applicableSubCategory;
+  String? applicableProduct;
   String? createdAt;
   String? updatedAt;
   int? iV;
 
   Coupon(
       {this.sId,
-        this.couponCode,
-        this.discountType,
-        this.discountAmount,
-        this.minimumPurchaseAmount,
-        this.endDate,
-        this.status,
-        this.applicableCategory,
-        this.applicableSubCategory,
-        this.applicableProduct,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.couponCode,
+      this.discountType,
+      this.discountAmount,
+      this.minimumPurchaseAmount,
+      this.endDate,
+      this.status,
+      this.applicableCategory,
+      this.applicableSubCategory,
+      this.applicableProduct,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Coupon.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -45,20 +45,20 @@ class Coupon {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['couponCode'] = this.couponCode;
-    data['discountType'] = this.discountType;
-    data['discountAmount'] = this.discountAmount;
-    data['minimumPurchaseAmount'] = this.minimumPurchaseAmount;
-    data['endDate'] = this.endDate;
-    data['status'] = this.status;
-    data['applicableCategory'] = this.applicableCategory;
-    data['applicableSubCategory'] = this.applicableSubCategory;
-    data['applicableProduct'] = this.applicableProduct;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
+    final Map<String, dynamic> data = {};
+    data['_id'] = sId;
+    data['couponCode'] = couponCode;
+    data['discountType'] = discountType;
+    data['discountAmount'] = discountAmount;
+    data['minimumPurchaseAmount'] = minimumPurchaseAmount;
+    data['endDate'] = endDate;
+    data['status'] = status;
+    data['applicableCategory'] = applicableCategory;
+    data['applicableSubCategory'] = applicableSubCategory;
+    data['applicableProduct'] = applicableProduct;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
     return data;
   }
 }

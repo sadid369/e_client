@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:e_client/models/product.dart';
 import 'package:e_client/utility/snack_bar_helper.dart';
 import 'package:e_client/utility/utility_extention.dart';
@@ -11,8 +13,6 @@ class ProductDetailProvider extends ChangeNotifier {
   var flutterCart = FlutterCart();
 
   ProductDetailProvider(this._dataProvider);
-
-  //TODO: should complete addToCart
 
   addToCart(Product product) {
     if (product.proVariantId!.isNotEmpty && selectedVariant == null) {

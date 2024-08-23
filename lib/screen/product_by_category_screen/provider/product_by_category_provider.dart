@@ -78,7 +78,6 @@ class ProductByCategoryProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //TODO: should complete sortProducts
   sortProducts({required bool ascending}) {
     filteredProduct.sort(
       (a, b) {

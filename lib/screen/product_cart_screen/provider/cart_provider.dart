@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 import 'package:e_client/utility/utility_extention.dart';
 
@@ -10,7 +12,6 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
-import '../../../core/data/data_provider.dart';
 import '../../../models/api_response.dart';
 import '../../../utility/constants.dart';
 import '../../../utility/snack_bar_helper.dart';
@@ -103,7 +104,6 @@ class CartProvider extends ChangeNotifier {
       }
       notifyListeners();
     } catch (e) {
-      print(e);
       SnackBarHelper.showErrorSnackBar('An Error occurred: $e');
       rethrow;
     }
@@ -171,7 +171,6 @@ class CartProvider extends ChangeNotifier {
       }
       notifyListeners();
     } catch (e) {
-      print(e);
       SnackBarHelper.showErrorSnackBar('An Error occurred: $e');
       rethrow;
     }
@@ -232,8 +231,7 @@ class CartProvider extends ChangeNotifier {
           "postal_code": postalCodeController.text,
           "country": "US"
         },
-        "amount":
-            getGrandTotal() * 100, //TODO: should complete amount grand total
+        "amount": getGrandTotal() * 100,
         "currency": "usd",
         "description": "Your transaction description here"
       };
@@ -313,7 +311,7 @@ class CartProvider extends ChangeNotifier {
       if (razorpayKey != null && razorpayKey != '') {
         var options = {
           'key': razorpayKey,
-          'amount': 100, //TODO: should complete amount grand total
+          'amount': 100,
           'name': "user",
           "currency": 'INR',
           'description': 'Your transaction description',

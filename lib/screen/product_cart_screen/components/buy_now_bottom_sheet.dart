@@ -1,7 +1,7 @@
-import 'dart:ui';
 import '../provider/cart_provider.dart';
 import '../../../utility/extensions.dart';
 import '../../../widget/compleate_order_button.dart';
+// ignore: unnecessary_import
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -177,8 +177,8 @@ void showCustomBottomSheet(BuildContext context) {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                              'Total Amount             : \$${context.cartProvider.getCartSubTotal()}', //TODO: should complete to CartSubTotal
-                              style: TextStyle(
+                              'Total Amount             : \$${context.cartProvider.getCartSubTotal()}',
+                              style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black)),
@@ -189,8 +189,8 @@ void showCustomBottomSheet(BuildContext context) {
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black)),
                           Text(
-                              'Grand Total            : \$${context.cartProvider.getGrandTotal()}', //TODO: should complete to GrandTotal
-                              style: TextStyle(
+                              'Grand Total            : \$${context.cartProvider.getGrandTotal()}',
+                              style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.blue)),
@@ -205,7 +205,7 @@ void showCustomBottomSheet(BuildContext context) {
                   builder: (context, cartProvider, child) {
                     return CompleteOrderButton(
                         labelText:
-                            'Complete Order  \$${context.cartProvider.getGrandTotal()} ', //TODO: should complete to GrandTotal
+                            'Complete Order  \$${context.cartProvider.getGrandTotal()} ',
                         onPressed: () {
                           if (!cartProvider.isExpanded) {
                             cartProvider.isExpanded = true;

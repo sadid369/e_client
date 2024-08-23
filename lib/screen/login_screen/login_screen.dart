@@ -1,7 +1,8 @@
 // import 'package:e_commerce_flutter/utility/extensions.dart';
 
-import 'package:e_client/utility/extensions.dart';
+// ignore_for_file: body_might_complete_normally_nullable
 
+import 'package:e_client/utility/extensions.dart';
 import '../../utility/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';

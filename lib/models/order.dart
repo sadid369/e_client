@@ -14,39 +14,38 @@ class Order {
 
   Order(
       {this.shippingAddress,
-        this.orderTotal,
-        this.sId,
-        this.userID,
-        this.orderStatus,
-        this.items,
-        this.totalPrice,
-        this.paymentMethod,
-        this.couponCode,
-        this.trackingUrl,
-        this.orderDate,
-        this.iV});
+      this.orderTotal,
+      this.sId,
+      this.userID,
+      this.orderStatus,
+      this.items,
+      this.totalPrice,
+      this.paymentMethod,
+      this.couponCode,
+      this.trackingUrl,
+      this.orderDate,
+      this.iV});
 
   Order.fromJson(Map<String, dynamic> json) {
     shippingAddress = json['shippingAddress'] != null
-        ? new ShippingAddress.fromJson(json['shippingAddress'])
+        ? ShippingAddress.fromJson(json['shippingAddress'])
         : null;
     orderTotal = json['orderTotal'] != null
-        ? new OrderTotal.fromJson(json['orderTotal'])
+        ? OrderTotal.fromJson(json['orderTotal'])
         : null;
     sId = json['_id'];
-    userID =
-    json['userID'] != null ? new UserID.fromJson(json['userID']) : null;
+    userID = json['userID'] != null ? UserID.fromJson(json['userID']) : null;
     orderStatus = json['orderStatus'];
     if (json['items'] != null) {
       items = <Items>[];
       json['items'].forEach((v) {
-        items!.add(new Items.fromJson(v));
+        items!.add(Items.fromJson(v));
       });
     }
-    totalPrice = json['totalPrice']?.toDouble();;
+    totalPrice = json['totalPrice']?.toDouble();
     paymentMethod = json['paymentMethod'];
     couponCode = json['couponCode'] != null
-        ? new CouponCode.fromJson(json['couponCode'])
+        ? CouponCode.fromJson(json['couponCode'])
         : null;
     trackingUrl = json['trackingUrl'];
     orderDate = json['orderDate'];
@@ -54,29 +53,29 @@ class Order {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.shippingAddress != null) {
-      data['shippingAddress'] = this.shippingAddress!.toJson();
+    final Map<String, dynamic> data = {};
+    if (shippingAddress != null) {
+      data['shippingAddress'] = shippingAddress!.toJson();
     }
-    if (this.orderTotal != null) {
-      data['orderTotal'] = this.orderTotal!.toJson();
+    if (orderTotal != null) {
+      data['orderTotal'] = orderTotal!.toJson();
     }
-    data['_id'] = this.sId;
-    if (this.userID != null) {
-      data['userID'] = this.userID!.toJson();
+    data['_id'] = sId;
+    if (userID != null) {
+      data['userID'] = userID!.toJson();
     }
-    data['orderStatus'] = this.orderStatus;
-    if (this.items != null) {
-      data['items'] = this.items!.map((v) => v.toJson()).toList();
+    data['orderStatus'] = orderStatus;
+    if (items != null) {
+      data['items'] = items!.map((v) => v.toJson()).toList();
     }
-    data['totalPrice'] = this.totalPrice;
-    data['paymentMethod'] = this.paymentMethod;
-    if (this.couponCode != null) {
-      data['couponCode'] = this.couponCode!.toJson();
+    data['totalPrice'] = totalPrice;
+    data['paymentMethod'] = paymentMethod;
+    if (couponCode != null) {
+      data['couponCode'] = couponCode!.toJson();
     }
-    data['trackingUrl'] = this.trackingUrl;
-    data['orderDate'] = this.orderDate;
-    data['__v'] = this.iV;
+    data['trackingUrl'] = trackingUrl;
+    data['orderDate'] = orderDate;
+    data['__v'] = iV;
     return data;
   }
 }
@@ -91,11 +90,11 @@ class ShippingAddress {
 
   ShippingAddress(
       {this.phone,
-        this.street,
-        this.city,
-        this.state,
-        this.postalCode,
-        this.country});
+      this.street,
+      this.city,
+      this.state,
+      this.postalCode,
+      this.country});
 
   ShippingAddress.fromJson(Map<String, dynamic> json) {
     phone = json['phone'];
@@ -107,13 +106,13 @@ class ShippingAddress {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['phone'] = this.phone;
-    data['street'] = this.street;
-    data['city'] = this.city;
-    data['state'] = this.state;
-    data['postalCode'] = this.postalCode;
-    data['country'] = this.country;
+    final Map<String, dynamic> data = {};
+    data['phone'] = phone;
+    data['street'] = street;
+    data['city'] = city;
+    data['state'] = state;
+    data['postalCode'] = postalCode;
+    data['country'] = country;
     return data;
   }
 }
@@ -132,10 +131,10 @@ class OrderTotal {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['subtotal'] = this.subtotal;
-    data['discount'] = this.discount;
-    data['total'] = this.total;
+    final Map<String, dynamic> data = {};
+    data['subtotal'] = subtotal;
+    data['discount'] = discount;
+    data['total'] = total;
     return data;
   }
 }
@@ -152,9 +151,9 @@ class UserID {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['name'] = this.name;
+    final Map<String, dynamic> data = {};
+    data['_id'] = sId;
+    data['name'] = name;
     return data;
   }
 }
@@ -169,11 +168,11 @@ class Items {
 
   Items(
       {this.productID,
-        this.productName,
-        this.quantity,
-        this.price,
-        this.variant,
-        this.sId});
+      this.productName,
+      this.quantity,
+      this.price,
+      this.variant,
+      this.sId});
 
   Items.fromJson(Map<String, dynamic> json) {
     productID = json['productID'];
@@ -185,13 +184,13 @@ class Items {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['productID'] = this.productID;
-    data['productName'] = this.productName;
-    data['quantity'] = this.quantity;
-    data['price'] = this.price;
-    data['variant'] = this.variant;
-    data['_id'] = this.sId;
+    final Map<String, dynamic> data = {};
+    data['productID'] = productID;
+    data['productName'] = productName;
+    data['quantity'] = quantity;
+    data['price'] = price;
+    data['variant'] = variant;
+    data['_id'] = sId;
     return data;
   }
 }
@@ -213,11 +212,11 @@ class CouponCode {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['couponCode'] = this.couponCode;
-    data['discountType'] = this.discountType;
-    data['discountAmount'] = this.discountAmount;
+    final Map<String, dynamic> data = {};
+    data['_id'] = sId;
+    data['couponCode'] = couponCode;
+    data['discountType'] = discountType;
+    data['discountAmount'] = discountAmount;
     return data;
   }
 }

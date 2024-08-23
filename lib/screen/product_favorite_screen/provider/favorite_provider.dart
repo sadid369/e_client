@@ -1,6 +1,4 @@
 import 'package:e_client/utility/constants.dart';
-import 'package:get/get.dart';
-
 import '../../../core/data/data_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';

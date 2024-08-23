@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'provider/cart_provider.dart';
 import '../../utility/extensions.dart';
 import 'package:flutter/material.dart';
@@ -47,16 +49,16 @@ class CartScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Total",
                       style:
                           TextStyle(fontSize: 22, fontWeight: FontWeight.w400),
                     ),
                     AnimatedSwitcherWrapper(
                       child: Text(
-                        "\$${context.cartProvider.getCartSubTotal().toString()}", //TODO: should complete amount to CartSubTotal
+                        "\$${context.cartProvider.getCartSubTotal().toString()}",
                         // key: ValueKey<double>(cartProvider.getCartSubTotal()),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w900,
                           color: Color(0xFFEC6813),

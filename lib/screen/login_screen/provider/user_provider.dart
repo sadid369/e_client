@@ -1,9 +1,10 @@
+// ignore_for_file: unused_field, unused_local_variable
+
 import 'dart:developer';
 
 import 'package:e_client/models/api_response.dart';
 import 'package:e_client/utility/snack_bar_helper.dart';
 import 'package:flutter_login/flutter_login.dart';
-
 import '../../../core/data/data_provider.dart';
 import '../../../models/user.dart';
 import '../login_screen.dart';
@@ -20,7 +21,6 @@ class UserProvider extends ChangeNotifier {
 
   UserProvider(this._dataProvider);
 
-  //TODO: should complete login
   Future<String?> login(LoginData data) async {
     try {
       Map<String, dynamic> loginData = {
@@ -51,13 +51,11 @@ class UserProvider extends ChangeNotifier {
         return 'Error: ${response.body?['message'] ?? response.statusText}';
       }
     } catch (e) {
-      print(e);
       SnackBarHelper.showErrorSnackBar('An Error Occurred: $e');
       return 'An Error Occurred: $e';
     }
   }
 
-  //TODO: should complete register
   Future<String?> register(SignupData data) async {
     try {
       Map<String, dynamic> user = {
@@ -83,7 +81,6 @@ class UserProvider extends ChangeNotifier {
         return 'Error: ${response.body?['message'] ?? response.statusText}';
       }
     } catch (e) {
-      print(e);
       SnackBarHelper.showErrorSnackBar('An Error Occurred: $e');
       return 'An Error Occurred: $e';
     }

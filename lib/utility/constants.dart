@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 const MAIN_URL = 'http://192.168.1.5:5000';
 const IP = '192.168.1.5';
 const LOCALHOST = 'localhost';
